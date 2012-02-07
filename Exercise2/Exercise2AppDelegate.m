@@ -20,6 +20,35 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    // USE NSString //
+    NSString *myString = [[NSString alloc] initWithString:@"MyString1"];
+    NSLog(@"%@", myString);
+    NSString *myString2 = [myString uppercaseString];
+    NSLog(@"%@",myString2);
+    
+    
+    // USE NSMutableArray
+    NSMutableArray *list = [[NSMutableArray alloc] init];
+    [list addObject:@"OneString"];
+    [list addObject:myString];
+    [list addObject:myString2];
+    [list addObject:[myString lowercaseString]];
+    for(NSString *s in list)
+        NSLog(@"String:%@", s);
+    
+    // USE NSMutableDictionary //
+    NSMutableDictionary *dictionaryString = [[NSMutableDictionary alloc] init];
+    [dictionaryString setObject:@"OneString" forKey:@"String1"];
+    [dictionaryString setObject:myString forKey:@"string2"];
+    [dictionaryString setObject:myString2 forKey:@"string3"];
+    [dictionaryString setObject:[myString lowercaseString] forKey:@"string4"];
+        NSLog(@"StringDic:%@", dictionaryString);
+    
+
+    [myString release];
+    [list release];
+    [dictionaryString release];
      
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
